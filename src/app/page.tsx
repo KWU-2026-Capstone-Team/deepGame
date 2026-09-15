@@ -6,6 +6,14 @@ import { useRouter } from 'next/navigation';
 const ROUND_OPTIONS = [5, 10, 15];
 const MONO: React.CSSProperties = { fontFamily: 'var(--font-jetbrains-mono, monospace)' };
 
+type Difficulty = 'easy' | 'medium' | 'hard' | 'all';
+const DIFFICULTY_OPTIONS: { value: Difficulty; label: string; sub: string; color: string }[] = [
+  { value: 'easy',   label: 'EASY',   sub: '쉬움',   color: '#00E5FF' },
+  { value: 'medium', label: 'MEDIUM', sub: '보통',   color: '#FFB800' },
+  { value: 'hard',   label: 'HARD',   sub: '어려움', color: '#FF2D5C' },
+  { value: 'all',    label: 'ALL',    sub: '전체',   color: 'var(--muted)' },
+];
+
 /* ── SVG 일러스트 ─────────────────────────────────────────────────────────── */
 
 /** 중앙: 얼굴 탐지 + AI 경고 */
@@ -133,8 +141,9 @@ function AnomalyBarsSVG() {
 export default function LandingPage() {
   const router = useRouter();
   const [rounds, setRounds] = useState(10);
+  const [difficulty, setDifficulty] = useState<Difficulty>('all');
 
-  const start = () => router.push(`/game?rounds=${rounds}`);
+  const start = () => router.push(`/game?rounds=${rounds}&difficulty=${difficulty}`);
 
   return (
     <div
@@ -201,6 +210,41 @@ export default function LandingPage() {
 
         {/* ── Config panel ── */}
         <div className="w-full max-w-sm space-y-6 animate-slide-up" style={{ animationDelay: '160ms' }}>
+
+          {/* Difficulty */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-1 h-3.5 rounded-full" style={{ background: 'var(--cyan)' }} />
+              <span className="text-xs tracking-[0.2em] uppercase" style={{ ...MONO, color: 'var(--muted)' }}>
+                DIFFICULTY
+              </span>
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              {DIFFICULTY_OPTIONS.map(({ value, label, sub, color }) => {
+                const active = difficulty === value;
+                return (
+                  <button
+                    key={value}
+                    onClick={() => setDifficulty(value)}
+                    className="py-3 flex flex-col items-center gap-0.5 transition-all duration-150 active:scale-95"
+                    style={{
+                      border: `1px solid ${active ? color : 'var(--border)'}`,
+                      background: active ? `${color}18` : 'var(--surface)',
+                      borderRadius: '6px',
+                    }}
+                  >
+                    <span style={{ ...MONO, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', color: active ? color : 'var(--muted)' }}>
+                      {label}
+                    </span>
+                    <span style={{ ...MONO, fontSize: '0.55rem', color: active ? color : 'var(--muted)', opacity: 0.7 }}>
+                      {sub}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Rounds */}
           <div>
             <div className="flex items-center gap-2 mb-3">

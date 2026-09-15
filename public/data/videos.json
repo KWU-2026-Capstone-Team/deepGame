@@ -5,7 +5,11 @@
       "src": "/videos/real_001.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 눈 깜빡임이 자연스럽고, 얼굴 외곽선이 배경과 명확하게 구분됩니다. 피부 텍스처도 조명 변화에 일관되게 반응합니다.",
-      "cues": ["자연스러운 눈 깜빡임", "선명한 얼굴 경계", "일관된 피부 텍스처"],
+      "cues": [
+        "자연스러운 눈 깜빡임",
+        "선명한 얼굴 경계",
+        "일관된 피부 텍스처"
+      ],
       "difficulty": "easy",
       "technique": null
     },
@@ -14,7 +18,11 @@
       "src": "/videos/real_002.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 얼굴 움직임에 따라 조명과 그림자가 자연스럽게 변합니다. 헤어라인과 피부 경계가 일관되게 유지됩니다.",
-      "cues": ["자연스러운 조명 변화", "일관된 헤어라인", "자연스러운 그림자"],
+      "cues": [
+        "자연스러운 조명 변화",
+        "일관된 헤어라인",
+        "자연스러운 그림자"
+      ],
       "difficulty": "easy",
       "technique": null
     },
@@ -23,7 +31,11 @@
       "src": "/videos/real_003.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 표정 변화가 얼굴 전체에 자연스럽게 전파됩니다. 눈 주변 잔주름과 피부 텍스처가 진짜임을 나타냅니다.",
-      "cues": ["자연스러운 표정 전파", "눈가 잔주름", "피부 텍스처 일관성"],
+      "cues": [
+        "자연스러운 표정 전파",
+        "눈가 잔주름",
+        "피부 텍스처 일관성"
+      ],
       "difficulty": "easy",
       "technique": null
     },
@@ -32,7 +44,11 @@
       "src": "/videos/real_004.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 고개 움직임 시 얼굴 비율이 물리적으로 올바르게 변합니다. 귀와 목 연결 부위가 자연스럽습니다.",
-      "cues": ["물리적으로 정확한 비율", "자연스러운 귀-목 연결", "일관된 피부색"],
+      "cues": [
+        "물리적으로 정확한 비율",
+        "자연스러운 귀-목 연결",
+        "일관된 피부색"
+      ],
       "difficulty": "medium",
       "technique": null
     },
@@ -41,7 +57,11 @@
       "src": "/videos/real_005.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 빠른 움직임에서도 얼굴 경계가 흔들리지 않고, 배경과의 경계가 선명합니다.",
-      "cues": ["안정적인 얼굴 경계", "선명한 배경 분리", "움직임 일관성"],
+      "cues": [
+        "안정적인 얼굴 경계",
+        "선명한 배경 분리",
+        "움직임 일관성"
+      ],
       "difficulty": "medium",
       "technique": null
     },
@@ -50,7 +70,11 @@
       "src": "/videos/real_006.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 말하는 동안 입 주변 근육 움직임이 음성과 자연스럽게 동기화됩니다. 치아와 혀 표현이 자연스럽습니다.",
-      "cues": ["자연스러운 입 근육 움직임", "음성 동기화", "치아 표현 자연스러움"],
+      "cues": [
+        "자연스러운 입 근육 움직임",
+        "음성 동기화",
+        "치아 표현 자연스러움"
+      ],
       "difficulty": "medium",
       "technique": null
     },
@@ -59,7 +83,11 @@
       "src": "/videos/real_007.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 눈동자 움직임이 자연스럽고, 눈의 하이라이트 반사가 물리적으로 일관됩니다.",
-      "cues": ["자연스러운 눈동자 움직임", "일관된 눈 하이라이트", "자연스러운 시선"],
+      "cues": [
+        "자연스러운 눈동자 움직임",
+        "일관된 눈 하이라이트",
+        "자연스러운 시선"
+      ],
       "difficulty": "medium",
       "technique": null
     },
@@ -68,7 +96,11 @@
       "src": "/videos/real_008.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 얼굴 전체의 미세한 근육 움직임이 자연스럽게 연결됩니다. 피부 광택이 조명에 따라 물리적으로 변합니다.",
-      "cues": ["미세 근육 자연스러움", "물리적 피부 광택", "조명 반응 일관성"],
+      "cues": [
+        "미세 근육 자연스러움",
+        "물리적 피부 광택",
+        "조명 반응 일관성"
+      ],
       "difficulty": "hard",
       "technique": null
     },
@@ -77,7 +109,11 @@
       "src": "/videos/real_009.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 고해상도에서도 모든 얼굴 요소가 일관됩니다. 모공, 잔털 등 미세한 피부 디테일이 자연스럽습니다.",
-      "cues": ["미세 피부 디테일", "모공 자연스러움", "전체적 물리 일관성"],
+      "cues": [
+        "미세 피부 디테일",
+        "모공 자연스러움",
+        "전체적 물리 일관성"
+      ],
       "difficulty": "hard",
       "technique": null
     },
@@ -86,7 +122,11 @@
       "src": "/videos/real_010.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 프레임 간 얼굴 요소의 temporal consistency가 완벽합니다. 어떤 구간을 봐도 일관성이 유지됩니다.",
-      "cues": ["완벽한 프레임 간 일관성", "temporal consistency", "자연스러운 노이즈"],
+      "cues": [
+        "완벽한 프레임 간 일관성",
+        "temporal consistency",
+        "자연스러운 노이즈"
+      ],
       "difficulty": "hard",
       "technique": null
     },
@@ -95,7 +135,11 @@
       "src": "/videos/real_011.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 얼굴 외곽 전체가 자연스럽게 처리되어 있으며, 헤어와 피부 경계가 명확합니다.",
-      "cues": ["자연스러운 얼굴 외곽", "명확한 헤어 경계", "일관된 전체 색조"],
+      "cues": [
+        "자연스러운 얼굴 외곽",
+        "명확한 헤어 경계",
+        "일관된 전체 색조"
+      ],
       "difficulty": "hard",
       "technique": null
     },
@@ -104,7 +148,11 @@
       "src": "/videos/real_012.mp4",
       "label": "real",
       "explanation": "실제 영상입니다. 복잡한 조명 환경에서도 얼굴 요소들이 물리적으로 일관되게 반응합니다.",
-      "cues": ["복잡 조명 대응", "물리적 일관성", "자연스러운 반사"],
+      "cues": [
+        "복잡 조명 대응",
+        "물리적 일관성",
+        "자연스러운 반사"
+      ],
       "difficulty": "hard",
       "technique": null
     },
@@ -113,7 +161,11 @@
       "src": "/videos/fake_easy_001.mp4",
       "label": "fake",
       "explanation": "Deepfakes 오토인코더로 생성된 딥페이크입니다. 얼굴 외곽선 근처에 블러 아티팩트가 보이고, 헤어라인과 얼굴 경계 처리가 부자연스럽습니다.",
-      "cues": ["경계부 블러", "부자연스러운 헤어라인", "얼굴 외곽 아티팩트"],
+      "cues": [
+        "경계부 블러",
+        "부자연스러운 헤어라인",
+        "얼굴 외곽 아티팩트"
+      ],
       "difficulty": "easy",
       "technique": "Deepfakes"
     },
@@ -122,7 +174,11 @@
       "src": "/videos/fake_easy_002.mp4",
       "label": "fake",
       "explanation": "Deepfakes 방식의 딥페이크입니다. 얼굴색과 목 색이 미묘하게 다르고, 조명 변화 시 원본 피부와 합성 피부의 반응이 다릅니다.",
-      "cues": ["얼굴-목 색조 차이", "조명 반응 불일치", "턱선 블러"],
+      "cues": [
+        "얼굴-목 색조 차이",
+        "조명 반응 불일치",
+        "턱선 블러"
+      ],
       "difficulty": "easy",
       "technique": "Deepfakes"
     },
@@ -131,7 +187,11 @@
       "src": "/videos/fake_easy_003.mp4",
       "label": "fake",
       "explanation": "Deepfakes 오토인코더 딥페이크입니다. 빠른 움직임 구간에서 얼굴 경계가 흔들리고, 배경과 얼굴의 해상도 차이가 눈에 띕니다.",
-      "cues": ["움직임 시 경계 흔들림", "해상도 차이", "배경과 불일치"],
+      "cues": [
+        "움직임 시 경계 흔들림",
+        "해상도 차이",
+        "배경과 불일치"
+      ],
       "difficulty": "easy",
       "technique": "Deepfakes"
     },
@@ -140,7 +200,11 @@
       "src": "/videos/fake_easy_004.mp4",
       "label": "fake",
       "explanation": "Deepfakes로 생성된 딥페이크입니다. 눈 주변 텍스처가 부자연스럽고, 얼굴 합성 경계에서 색상이 부드럽게 이어지지 않습니다.",
-      "cues": ["눈 주변 텍스처 이상", "색상 경계 불연속", "피부 광택 차이"],
+      "cues": [
+        "눈 주변 텍스처 이상",
+        "색상 경계 불연속",
+        "피부 광택 차이"
+      ],
       "difficulty": "easy",
       "technique": "Deepfakes"
     },
@@ -149,7 +213,11 @@
       "src": "/videos/fake_medium_001.mp4",
       "label": "fake",
       "explanation": "Deepfakes 딥페이크입니다. 전반적으로 품질이 높지만 눈동자 움직임이 미묘하게 부자연스럽고, 빠른 움직임 시 텍스처가 흔들립니다.",
-      "cues": ["눈동자 움직임 이상", "빠른 움직임 시 텍스처 흔들림", "미세한 색조 차이"],
+      "cues": [
+        "눈동자 움직임 이상",
+        "빠른 움직임 시 텍스처 흔들림",
+        "미세한 색조 차이"
+      ],
       "difficulty": "medium",
       "technique": "Deepfakes"
     },
@@ -158,7 +226,11 @@
       "src": "/videos/fake_medium_002.mp4",
       "label": "fake",
       "explanation": "Deepfakes 방식입니다. 미세한 합성 경계가 보이고 조명 반사가 원본과 완벽히 일치하지 않습니다.",
-      "cues": ["미세한 합성 경계", "조명 반사 불일치", "피부 광택 차이"],
+      "cues": [
+        "미세한 합성 경계",
+        "조명 반사 불일치",
+        "피부 광택 차이"
+      ],
       "difficulty": "medium",
       "technique": "Deepfakes"
     },
@@ -167,7 +239,11 @@
       "src": "/videos/fake_medium_003.mp4",
       "label": "fake",
       "explanation": "Deepfakes 딥페이크입니다. 말하는 동안 치아와 입 내부 처리가 어색하고, 입 모양의 싱크가 미세하게 어긋납니다.",
-      "cues": ["치아 처리 어색함", "입 주변 아티팩트", "립싱크 불일치"],
+      "cues": [
+        "치아 처리 어색함",
+        "입 주변 아티팩트",
+        "립싱크 불일치"
+      ],
       "difficulty": "medium",
       "technique": "Deepfakes"
     },
@@ -176,7 +252,11 @@
       "src": "/videos/fake_medium_004.mp4",
       "label": "fake",
       "explanation": "Deepfakes 오토인코더 딥페이크입니다. 표정이 크게 변할 때 얼굴 경계가 흔들립니다.",
-      "cues": ["표정 변화 시 경계 흔들림", "정적 구간과의 품질 차이", "눈가 텍스처 불일치"],
+      "cues": [
+        "표정 변화 시 경계 흔들림",
+        "정적 구간과의 품질 차이",
+        "눈가 텍스처 불일치"
+      ],
       "difficulty": "medium",
       "technique": "Deepfakes"
     },
@@ -185,7 +265,11 @@
       "src": "/videos/fake_hard_001.mp4",
       "label": "fake",
       "explanation": "고품질 Deepfakes 딥페이크입니다. 육안으로 구별하기 어렵지만 눈동자 하이라이트 위치가 미세하게 부자연스럽고 아주 미세한 떨림이 있습니다.",
-      "cues": ["눈동자 하이라이트 미세 이상", "극미세 떨림", "피부 텍스처 고주파 패턴"],
+      "cues": [
+        "눈동자 하이라이트 미세 이상",
+        "극미세 떨림",
+        "피부 텍스처 고주파 패턴"
+      ],
       "difficulty": "hard",
       "technique": "Deepfakes"
     },
@@ -194,7 +278,11 @@
       "src": "/videos/fake_hard_002.mp4",
       "label": "fake",
       "explanation": "고품질 Deepfakes입니다. 정적 구간에서 거의 완벽하지만 temporal consistency가 빠른 움직임에서 미세하게 깨집니다.",
-      "cues": ["프레임 간 미세 불일치", "움직임 구간 아티팩트", "귀 주변 처리 이상"],
+      "cues": [
+        "프레임 간 미세 불일치",
+        "움직임 구간 아티팩트",
+        "귀 주변 처리 이상"
+      ],
       "difficulty": "hard",
       "technique": "Deepfakes"
     },
@@ -203,7 +291,11 @@
       "src": "/videos/fake_hard_003.mp4",
       "label": "fake",
       "explanation": "정교한 Deepfakes 딥페이크입니다. 고주파 텍스처 분석 시 생성 모델 특유의 반복 패턴이 발견됩니다.",
-      "cues": ["고주파 텍스처 패턴", "눈가 주름 비자연성", "귀 영역 디테일 부족"],
+      "cues": [
+        "고주파 텍스처 패턴",
+        "눈가 주름 비자연성",
+        "귀 영역 디테일 부족"
+      ],
       "difficulty": "hard",
       "technique": "Deepfakes"
     },
@@ -212,9 +304,1053 @@
       "src": "/videos/fake_hard_004.mp4",
       "label": "fake",
       "explanation": "최고 품질 Deepfakes 딥페이크입니다. 거의 완벽하지만 얼굴 외곽 가장자리에서 미세한 블러와 색상 불연속이 발생합니다.",
-      "cues": ["외곽 미세 블러", "색상 불연속", "조명 방향 미세 불일치"],
+      "cues": [
+        "외곽 미세 블러",
+        "색상 불연속",
+        "조명 방향 미세 불일치"
+      ],
       "difficulty": "hard",
       "technique": "Deepfakes"
+    },
+    {
+      "id": "l1_medium_000_M101",
+      "src": "/api/video/end_to_end_level_1/000_M101.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 방식으로 생성된 딥페이크입니다. 얼굴 경계 부근에 미세한 블러 아티팩트가 보이며, 자연스러운 표정 전환에서 약간의 부자연스러움이 있습니다.",
+      "cues": [
+        "경계부 미세 블러",
+        "표정 전환 부자연스러움",
+        "헤어라인 처리 이상"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_001_W101",
+      "src": "/api/video/end_to_end_level_1/001_W101.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크 기술로 합성된 영상입니다. 빠른 움직임 구간에서 얼굴 텍스처가 약간 흔들리며, 피부 색조의 미세한 불일치가 있습니다.",
+      "cues": [
+        "움직임 시 텍스처 흔들림",
+        "피부 색조 불일치",
+        "얼굴 외곽 블러"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_002_M101",
+      "src": "/api/video/end_to_end_level_1/002_M101.mp4",
+      "label": "fake",
+      "explanation": "AI 합성 딥페이크입니다. 눈 깜빡임 패턴이 다소 부자연스럽고, 조명 변화 시 얼굴 반응이 원본과 미묘하게 다릅니다.",
+      "cues": [
+        "눈 깜빡임 패턴 이상",
+        "조명 반응 불일치",
+        "미세한 합성 흔적"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_003_M101",
+      "src": "/api/video/end_to_end_level_1/003_M101.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크입니다. 말하는 구간에서 입 주변 텍스처가 약간 부자연스럽고, 음성과의 싱크가 미세하게 어긋납니다.",
+      "cues": [
+        "입 주변 텍스처 이상",
+        "립싱크 미세 불일치",
+        "치아 표현 어색함"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_004_M101",
+      "src": "/api/video/end_to_end_level_1/004_M101.mp4",
+      "label": "fake",
+      "explanation": "딥페이크 합성 영상입니다. 얼굴과 목의 색조 차이가 미묘하게 있으며, 고개를 움직일 때 얼굴 외곽의 처리가 자연스럽지 않습니다.",
+      "cues": [
+        "얼굴-목 색조 차이",
+        "고개 움직임 시 외곽 이상",
+        "피부 광택 불일치"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_005_W101",
+      "src": "/api/video/end_to_end_level_1/005_W101.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 방식으로 생성된 딥페이크입니다. 얼굴 경계 부근에 미세한 블러 아티팩트가 보이며, 자연스러운 표정 전환에서 약간의 부자연스러움이 있습니다.",
+      "cues": [
+        "경계부 미세 블러",
+        "표정 전환 부자연스러움",
+        "헤어라인 처리 이상"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_006_M131",
+      "src": "/api/video/end_to_end_level_1/006_M131.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크 기술로 합성된 영상입니다. 빠른 움직임 구간에서 얼굴 텍스처가 약간 흔들리며, 피부 색조의 미세한 불일치가 있습니다.",
+      "cues": [
+        "움직임 시 텍스처 흔들림",
+        "피부 색조 불일치",
+        "얼굴 외곽 블러"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_007_W101",
+      "src": "/api/video/end_to_end_level_1/007_W101.mp4",
+      "label": "fake",
+      "explanation": "AI 합성 딥페이크입니다. 눈 깜빡임 패턴이 다소 부자연스럽고, 조명 변화 시 얼굴 반응이 원본과 미묘하게 다릅니다.",
+      "cues": [
+        "눈 깜빡임 패턴 이상",
+        "조명 반응 불일치",
+        "미세한 합성 흔적"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_008_W101",
+      "src": "/api/video/end_to_end_level_1/008_W101.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크입니다. 말하는 구간에서 입 주변 텍스처가 약간 부자연스럽고, 음성과의 싱크가 미세하게 어긋납니다.",
+      "cues": [
+        "입 주변 텍스처 이상",
+        "립싱크 미세 불일치",
+        "치아 표현 어색함"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_009_M131",
+      "src": "/api/video/end_to_end_level_1/009_M131.mp4",
+      "label": "fake",
+      "explanation": "딥페이크 합성 영상입니다. 얼굴과 목의 색조 차이가 미묘하게 있으며, 고개를 움직일 때 얼굴 외곽의 처리가 자연스럽지 않습니다.",
+      "cues": [
+        "얼굴-목 색조 차이",
+        "고개 움직임 시 외곽 이상",
+        "피부 광택 불일치"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_010_W006",
+      "src": "/api/video/end_to_end_level_1/010_W006.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 방식으로 생성된 딥페이크입니다. 얼굴 경계 부근에 미세한 블러 아티팩트가 보이며, 자연스러운 표정 전환에서 약간의 부자연스러움이 있습니다.",
+      "cues": [
+        "경계부 미세 블러",
+        "표정 전환 부자연스러움",
+        "헤어라인 처리 이상"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_011_M131",
+      "src": "/api/video/end_to_end_level_1/011_M131.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크 기술로 합성된 영상입니다. 빠른 움직임 구간에서 얼굴 텍스처가 약간 흔들리며, 피부 색조의 미세한 불일치가 있습니다.",
+      "cues": [
+        "움직임 시 텍스처 흔들림",
+        "피부 색조 불일치",
+        "얼굴 외곽 블러"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_012_W006",
+      "src": "/api/video/end_to_end_level_1/012_W006.mp4",
+      "label": "fake",
+      "explanation": "AI 합성 딥페이크입니다. 눈 깜빡임 패턴이 다소 부자연스럽고, 조명 변화 시 얼굴 반응이 원본과 미묘하게 다릅니다.",
+      "cues": [
+        "눈 깜빡임 패턴 이상",
+        "조명 반응 불일치",
+        "미세한 합성 흔적"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_013_W006",
+      "src": "/api/video/end_to_end_level_1/013_W006.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크입니다. 말하는 구간에서 입 주변 텍스처가 약간 부자연스럽고, 음성과의 싱크가 미세하게 어긋납니다.",
+      "cues": [
+        "입 주변 텍스처 이상",
+        "립싱크 미세 불일치",
+        "치아 표현 어색함"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_014_M131",
+      "src": "/api/video/end_to_end_level_1/014_M131.mp4",
+      "label": "fake",
+      "explanation": "딥페이크 합성 영상입니다. 얼굴과 목의 색조 차이가 미묘하게 있으며, 고개를 움직일 때 얼굴 외곽의 처리가 자연스럽지 않습니다.",
+      "cues": [
+        "얼굴-목 색조 차이",
+        "고개 움직임 시 외곽 이상",
+        "피부 광택 불일치"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_015_M109",
+      "src": "/api/video/end_to_end_level_1/015_M109.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 방식으로 생성된 딥페이크입니다. 얼굴 경계 부근에 미세한 블러 아티팩트가 보이며, 자연스러운 표정 전환에서 약간의 부자연스러움이 있습니다.",
+      "cues": [
+        "경계부 미세 블러",
+        "표정 전환 부자연스러움",
+        "헤어라인 처리 이상"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_016_M109",
+      "src": "/api/video/end_to_end_level_1/016_M109.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크 기술로 합성된 영상입니다. 빠른 움직임 구간에서 얼굴 텍스처가 약간 흔들리며, 피부 색조의 미세한 불일치가 있습니다.",
+      "cues": [
+        "움직임 시 텍스처 흔들림",
+        "피부 색조 불일치",
+        "얼굴 외곽 블러"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_017_W006",
+      "src": "/api/video/end_to_end_level_1/017_W006.mp4",
+      "label": "fake",
+      "explanation": "AI 합성 딥페이크입니다. 눈 깜빡임 패턴이 다소 부자연스럽고, 조명 변화 시 얼굴 반응이 원본과 미묘하게 다릅니다.",
+      "cues": [
+        "눈 깜빡임 패턴 이상",
+        "조명 반응 불일치",
+        "미세한 합성 흔적"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_018_W007",
+      "src": "/api/video/end_to_end_level_1/018_W007.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크입니다. 말하는 구간에서 입 주변 텍스처가 약간 부자연스럽고, 음성과의 싱크가 미세하게 어긋납니다.",
+      "cues": [
+        "입 주변 텍스처 이상",
+        "립싱크 미세 불일치",
+        "치아 표현 어색함"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_019_W007",
+      "src": "/api/video/end_to_end_level_1/019_W007.mp4",
+      "label": "fake",
+      "explanation": "딥페이크 합성 영상입니다. 얼굴과 목의 색조 차이가 미묘하게 있으며, 고개를 움직일 때 얼굴 외곽의 처리가 자연스럽지 않습니다.",
+      "cues": [
+        "얼굴-목 색조 차이",
+        "고개 움직임 시 외곽 이상",
+        "피부 광택 불일치"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_020_M109",
+      "src": "/api/video/end_to_end_level_1/020_M109.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 방식으로 생성된 딥페이크입니다. 얼굴 경계 부근에 미세한 블러 아티팩트가 보이며, 자연스러운 표정 전환에서 약간의 부자연스러움이 있습니다.",
+      "cues": [
+        "경계부 미세 블러",
+        "표정 전환 부자연스러움",
+        "헤어라인 처리 이상"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_021_W007",
+      "src": "/api/video/end_to_end_level_1/021_W007.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크 기술로 합성된 영상입니다. 빠른 움직임 구간에서 얼굴 텍스처가 약간 흔들리며, 피부 색조의 미세한 불일치가 있습니다.",
+      "cues": [
+        "움직임 시 텍스처 흔들림",
+        "피부 색조 불일치",
+        "얼굴 외곽 블러"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_022_M109",
+      "src": "/api/video/end_to_end_level_1/022_M109.mp4",
+      "label": "fake",
+      "explanation": "AI 합성 딥페이크입니다. 눈 깜빡임 패턴이 다소 부자연스럽고, 조명 변화 시 얼굴 반응이 원본과 미묘하게 다릅니다.",
+      "cues": [
+        "눈 깜빡임 패턴 이상",
+        "조명 반응 불일치",
+        "미세한 합성 흔적"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_023_M113",
+      "src": "/api/video/end_to_end_level_1/023_M113.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 딥페이크입니다. 말하는 구간에서 입 주변 텍스처가 약간 부자연스럽고, 음성과의 싱크가 미세하게 어긋납니다.",
+      "cues": [
+        "입 주변 텍스처 이상",
+        "립싱크 미세 불일치",
+        "치아 표현 어색함"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l1_medium_024_M113",
+      "src": "/api/video/end_to_end_level_1/024_M113.mp4",
+      "label": "fake",
+      "explanation": "딥페이크 합성 영상입니다. 얼굴과 목의 색조 차이가 미묘하게 있으며, 고개를 움직일 때 얼굴 외곽의 처리가 자연스럽지 않습니다.",
+      "cues": [
+        "얼굴-목 색조 차이",
+        "고개 움직임 시 외곽 이상",
+        "피부 광택 불일치"
+      ],
+      "difficulty": "medium",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_001_W101",
+      "src": "/api/video/end_to_end_level_2/001_W101.mp4",
+      "label": "fake",
+      "explanation": "고품질 End-to-End 딥페이크입니다. 전반적으로 매우 자연스럽지만, 세밀히 관찰하면 눈동자 반사광의 위치가 미세하게 부자연스럽습니다.",
+      "cues": [
+        "눈동자 반사광 이상",
+        "극미세 temporal artifact",
+        "고품질 합성"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_003_M101",
+      "src": "/api/video/end_to_end_level_2/003_M101.mp4",
+      "label": "fake",
+      "explanation": "최신 기술의 딥페이크 영상입니다. 거의 완벽하게 합성되었으나, 빠른 움직임의 찰나에 프레임 간 불일치가 발생합니다.",
+      "cues": [
+        "프레임 간 미세 불일치",
+        "움직임 구간 아티팩트",
+        "고주파 텍스처 패턴"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_005_W101",
+      "src": "/api/video/end_to_end_level_2/005_W101.mp4",
+      "label": "fake",
+      "explanation": "고도로 정교한 딥페이크입니다. 육안으로는 실제와 구분이 거의 불가능하지만, 피부의 미세한 노이즈 패턴에서 AI 생성 흔적이 있습니다.",
+      "cues": [
+        "미세 노이즈 패턴",
+        "피부 텍스처 AI 흔적",
+        "경계부 극미세 블러"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_007_W101",
+      "src": "/api/video/end_to_end_level_2/007_W101.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 고품질 딥페이크입니다. 표정과 움직임이 매우 자연스럽지만, 귀와 헤어라인 처리에서 극히 미세한 아티팩트가 있습니다.",
+      "cues": [
+        "귀 처리 미세 이상",
+        "헤어라인 극미세 아티팩트",
+        "temporal consistency 미세 오류"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_010_W006",
+      "src": "/api/video/end_to_end_level_2/010_W006.mp4",
+      "label": "fake",
+      "explanation": "정교하게 합성된 딥페이크입니다. 대부분의 구간이 완벽하지만, 조명이 급격히 변하는 순간 피부의 광택 반응이 원본과 미세하게 다릅니다.",
+      "cues": [
+        "급격한 조명 변화 시 이상",
+        "피부 광택 미세 불일치",
+        "극히 짧은 구간 아티팩트"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_013_W006",
+      "src": "/api/video/end_to_end_level_2/013_W006.mp4",
+      "label": "fake",
+      "explanation": "고품질 End-to-End 딥페이크입니다. 전반적으로 매우 자연스럽지만, 세밀히 관찰하면 눈동자 반사광의 위치가 미세하게 부자연스럽습니다.",
+      "cues": [
+        "눈동자 반사광 이상",
+        "극미세 temporal artifact",
+        "고품질 합성"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_021_W007",
+      "src": "/api/video/end_to_end_level_2/021_W007.mp4",
+      "label": "fake",
+      "explanation": "최신 기술의 딥페이크 영상입니다. 거의 완벽하게 합성되었으나, 빠른 움직임의 찰나에 프레임 간 불일치가 발생합니다.",
+      "cues": [
+        "프레임 간 미세 불일치",
+        "움직임 구간 아티팩트",
+        "고주파 텍스처 패턴"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_022_M109",
+      "src": "/api/video/end_to_end_level_2/022_M109.mp4",
+      "label": "fake",
+      "explanation": "고도로 정교한 딥페이크입니다. 육안으로는 실제와 구분이 거의 불가능하지만, 피부의 미세한 노이즈 패턴에서 AI 생성 흔적이 있습니다.",
+      "cues": [
+        "미세 노이즈 패턴",
+        "피부 텍스처 AI 흔적",
+        "경계부 극미세 블러"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_023_M113",
+      "src": "/api/video/end_to_end_level_2/023_M113.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 고품질 딥페이크입니다. 표정과 움직임이 매우 자연스럽지만, 귀와 헤어라인 처리에서 극히 미세한 아티팩트가 있습니다.",
+      "cues": [
+        "귀 처리 미세 이상",
+        "헤어라인 극미세 아티팩트",
+        "temporal consistency 미세 오류"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_025_W007",
+      "src": "/api/video/end_to_end_level_2/025_W007.mp4",
+      "label": "fake",
+      "explanation": "정교하게 합성된 딥페이크입니다. 대부분의 구간이 완벽하지만, 조명이 급격히 변하는 순간 피부의 광택 반응이 원본과 미세하게 다릅니다.",
+      "cues": [
+        "급격한 조명 변화 시 이상",
+        "피부 광택 미세 불일치",
+        "극히 짧은 구간 아티팩트"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_038_W009",
+      "src": "/api/video/end_to_end_level_2/038_W009.mp4",
+      "label": "fake",
+      "explanation": "고품질 End-to-End 딥페이크입니다. 전반적으로 매우 자연스럽지만, 세밀히 관찰하면 눈동자 반사광의 위치가 미세하게 부자연스럽습니다.",
+      "cues": [
+        "눈동자 반사광 이상",
+        "극미세 temporal artifact",
+        "고품질 합성"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_050_M115",
+      "src": "/api/video/end_to_end_level_2/050_M115.mp4",
+      "label": "fake",
+      "explanation": "최신 기술의 딥페이크 영상입니다. 거의 완벽하게 합성되었으나, 빠른 움직임의 찰나에 프레임 간 불일치가 발생합니다.",
+      "cues": [
+        "프레임 간 미세 불일치",
+        "움직임 구간 아티팩트",
+        "고주파 텍스처 패턴"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_052_W012",
+      "src": "/api/video/end_to_end_level_2/052_W012.mp4",
+      "label": "fake",
+      "explanation": "고도로 정교한 딥페이크입니다. 육안으로는 실제와 구분이 거의 불가능하지만, 피부의 미세한 노이즈 패턴에서 AI 생성 흔적이 있습니다.",
+      "cues": [
+        "미세 노이즈 패턴",
+        "피부 텍스처 AI 흔적",
+        "경계부 극미세 블러"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_059_M118",
+      "src": "/api/video/end_to_end_level_2/059_M118.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 고품질 딥페이크입니다. 표정과 움직임이 매우 자연스럽지만, 귀와 헤어라인 처리에서 극히 미세한 아티팩트가 있습니다.",
+      "cues": [
+        "귀 처리 미세 이상",
+        "헤어라인 극미세 아티팩트",
+        "temporal consistency 미세 오류"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_075_W014",
+      "src": "/api/video/end_to_end_level_2/075_W014.mp4",
+      "label": "fake",
+      "explanation": "정교하게 합성된 딥페이크입니다. 대부분의 구간이 완벽하지만, 조명이 급격히 변하는 순간 피부의 광택 반응이 원본과 미세하게 다릅니다.",
+      "cues": [
+        "급격한 조명 변화 시 이상",
+        "피부 광택 미세 불일치",
+        "극히 짧은 구간 아티팩트"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_086_W016",
+      "src": "/api/video/end_to_end_level_2/086_W016.mp4",
+      "label": "fake",
+      "explanation": "고품질 End-to-End 딥페이크입니다. 전반적으로 매우 자연스럽지만, 세밀히 관찰하면 눈동자 반사광의 위치가 미세하게 부자연스럽습니다.",
+      "cues": [
+        "눈동자 반사광 이상",
+        "극미세 temporal artifact",
+        "고품질 합성"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_088_W016",
+      "src": "/api/video/end_to_end_level_2/088_W016.mp4",
+      "label": "fake",
+      "explanation": "최신 기술의 딥페이크 영상입니다. 거의 완벽하게 합성되었으나, 빠른 움직임의 찰나에 프레임 간 불일치가 발생합니다.",
+      "cues": [
+        "프레임 간 미세 불일치",
+        "움직임 구간 아티팩트",
+        "고주파 텍스처 패턴"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_092_M120",
+      "src": "/api/video/end_to_end_level_2/092_M120.mp4",
+      "label": "fake",
+      "explanation": "고도로 정교한 딥페이크입니다. 육안으로는 실제와 구분이 거의 불가능하지만, 피부의 미세한 노이즈 패턴에서 AI 생성 흔적이 있습니다.",
+      "cues": [
+        "미세 노이즈 패턴",
+        "피부 텍스처 AI 흔적",
+        "경계부 극미세 블러"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_099_W018",
+      "src": "/api/video/end_to_end_level_2/099_W018.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 고품질 딥페이크입니다. 표정과 움직임이 매우 자연스럽지만, 귀와 헤어라인 처리에서 극히 미세한 아티팩트가 있습니다.",
+      "cues": [
+        "귀 처리 미세 이상",
+        "헤어라인 극미세 아티팩트",
+        "temporal consistency 미세 오류"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_101_W018",
+      "src": "/api/video/end_to_end_level_2/101_W018.mp4",
+      "label": "fake",
+      "explanation": "정교하게 합성된 딥페이크입니다. 대부분의 구간이 완벽하지만, 조명이 급격히 변하는 순간 피부의 광택 반응이 원본과 미세하게 다릅니다.",
+      "cues": [
+        "급격한 조명 변화 시 이상",
+        "피부 광택 미세 불일치",
+        "극히 짧은 구간 아티팩트"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_104_W018",
+      "src": "/api/video/end_to_end_level_2/104_W018.mp4",
+      "label": "fake",
+      "explanation": "고품질 End-to-End 딥페이크입니다. 전반적으로 매우 자연스럽지만, 세밀히 관찰하면 눈동자 반사광의 위치가 미세하게 부자연스럽습니다.",
+      "cues": [
+        "눈동자 반사광 이상",
+        "극미세 temporal artifact",
+        "고품질 합성"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_111_M123",
+      "src": "/api/video/end_to_end_level_2/111_M123.mp4",
+      "label": "fake",
+      "explanation": "최신 기술의 딥페이크 영상입니다. 거의 완벽하게 합성되었으나, 빠른 움직임의 찰나에 프레임 간 불일치가 발생합니다.",
+      "cues": [
+        "프레임 간 미세 불일치",
+        "움직임 구간 아티팩트",
+        "고주파 텍스처 패턴"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_114_M123",
+      "src": "/api/video/end_to_end_level_2/114_M123.mp4",
+      "label": "fake",
+      "explanation": "고도로 정교한 딥페이크입니다. 육안으로는 실제와 구분이 거의 불가능하지만, 피부의 미세한 노이즈 패턴에서 AI 생성 흔적이 있습니다.",
+      "cues": [
+        "미세 노이즈 패턴",
+        "피부 텍스처 AI 흔적",
+        "경계부 극미세 블러"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_116_W132",
+      "src": "/api/video/end_to_end_level_2/116_W132.mp4",
+      "label": "fake",
+      "explanation": "End-to-End 고품질 딥페이크입니다. 표정과 움직임이 매우 자연스럽지만, 귀와 헤어라인 처리에서 극히 미세한 아티팩트가 있습니다.",
+      "cues": [
+        "귀 처리 미세 이상",
+        "헤어라인 극미세 아티팩트",
+        "temporal consistency 미세 오류"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "l2_hard_122_W021",
+      "src": "/api/video/end_to_end_level_2/122_W021.mp4",
+      "label": "fake",
+      "explanation": "정교하게 합성된 딥페이크입니다. 대부분의 구간이 완벽하지만, 조명이 급격히 변하는 순간 피부의 광택 반응이 원본과 미세하게 다릅니다.",
+      "cues": [
+        "급격한 조명 변화 시 이상",
+        "피부 광택 미세 불일치",
+        "극히 짧은 구간 아티팩트"
+      ],
+      "difficulty": "hard",
+      "technique": "End-to-End"
+    },
+    {
+      "id": "real_ffpp_easy_033",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/033.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 눈 깜빡임이 자연스럽고 얼굴 경계가 선명하게 구분됩니다. 피부 텍스처가 조명에 일관되게 반응합니다.",
+      "cues": [
+        "자연스러운 눈 깜빡임",
+        "선명한 얼굴 경계",
+        "일관된 피부 텍스처"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_035",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/035.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 얼굴 외곽선이 자연스럽고 헤어라인과 피부 경계가 명확합니다. 딥페이크 특유의 블러 아티팩트가 없습니다.",
+      "cues": [
+        "자연스러운 얼굴 외곽",
+        "명확한 헤어라인",
+        "블러 아티팩트 없음"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_036",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/036.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 표정이 얼굴 전체 근육에 자연스럽게 전파되며, 조명 반응도 물리적으로 일관됩니다.",
+      "cues": [
+        "자연스러운 표정 전파",
+        "물리적 조명 반응",
+        "균일한 피부 색조"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_044",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/044.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 얼굴-목 연결부가 자연스럽고 색조가 일치합니다. 합성 경계선이 전혀 없습니다.",
+      "cues": [
+        "얼굴-목 자연스러운 연결",
+        "균일한 색조",
+        "합성 경계 없음"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_097",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/097.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 고개를 돌릴 때 귀와 목 부분이 자연스럽게 변형되며, 피부 광택이 일관됩니다.",
+      "cues": [
+        "자연스러운 귀-목 처리",
+        "일관된 피부 광택",
+        "움직임 자연스러움"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_134",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/134.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 눈 깜빡임이 자연스럽고 얼굴 경계가 선명하게 구분됩니다. 피부 텍스처가 조명에 일관되게 반응합니다.",
+      "cues": [
+        "자연스러운 눈 깜빡임",
+        "선명한 얼굴 경계",
+        "일관된 피부 텍스처"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_183",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/183.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 얼굴 외곽선이 자연스럽고 헤어라인과 피부 경계가 명확합니다. 딥페이크 특유의 블러 아티팩트가 없습니다.",
+      "cues": [
+        "자연스러운 얼굴 외곽",
+        "명확한 헤어라인",
+        "블러 아티팩트 없음"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_192",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/192.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 표정이 얼굴 전체 근육에 자연스럽게 전파되며, 조명 반응도 물리적으로 일관됩니다.",
+      "cues": [
+        "자연스러운 표정 전파",
+        "물리적 조명 반응",
+        "균일한 피부 색조"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_210",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/210.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 얼굴-목 연결부가 자연스럽고 색조가 일치합니다. 합성 경계선이 전혀 없습니다.",
+      "cues": [
+        "얼굴-목 자연스러운 연결",
+        "균일한 색조",
+        "합성 경계 없음"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_easy_241",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/241.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 고개를 돌릴 때 귀와 목 부분이 자연스럽게 변형되며, 피부 광택이 일관됩니다.",
+      "cues": [
+        "자연스러운 귀-목 처리",
+        "일관된 피부 광택",
+        "움직임 자연스러움"
+      ],
+      "difficulty": "easy",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_252",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/252.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 빠른 움직임에서도 얼굴 경계가 안정적이며 배경과의 분리가 명확합니다. Temporal consistency가 완벽합니다.",
+      "cues": [
+        "안정적인 얼굴 경계",
+        "선명한 배경 분리",
+        "temporal consistency"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_253",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/253.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 말하는 동안 입 주변 근육 움직임이 음성과 자연스럽게 동기화되고, 치아 표현이 일관됩니다.",
+      "cues": [
+        "자연스러운 입 근육 움직임",
+        "음성-립 동기화",
+        "치아 표현 자연스러움"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_266",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/266.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 눈동자 움직임이 자연스럽고, 눈의 하이라이트 반사가 물리적으로 일관되게 유지됩니다.",
+      "cues": [
+        "자연스러운 눈동자 움직임",
+        "일관된 눈 하이라이트",
+        "자연스러운 시선"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_339",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/339.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 얼굴 조명이 배경 조명과 일치하고, 그림자 방향이 물리적으로 올바릅니다.",
+      "cues": [
+        "조명-배경 일치",
+        "올바른 그림자 방향",
+        "자연스러운 반사"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_392",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/392.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 미세한 표정 변화가 자연스럽게 연결되며, 피부 미세 텍스처가 일관되게 유지됩니다.",
+      "cues": [
+        "미세 표정 자연스러움",
+        "피부 텍스처 일관성",
+        "자연스러운 근육 연결"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_469",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/469.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 빠른 움직임에서도 얼굴 경계가 안정적이며 배경과의 분리가 명확합니다. Temporal consistency가 완벽합니다.",
+      "cues": [
+        "안정적인 얼굴 경계",
+        "선명한 배경 분리",
+        "temporal consistency"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_481",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/481.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 말하는 동안 입 주변 근육 움직임이 음성과 자연스럽게 동기화되고, 치아 표현이 일관됩니다.",
+      "cues": [
+        "자연스러운 입 근육 움직임",
+        "음성-립 동기화",
+        "치아 표현 자연스러움"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_585",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/585.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 눈동자 움직임이 자연스럽고, 눈의 하이라이트 반사가 물리적으로 일관되게 유지됩니다.",
+      "cues": [
+        "자연스러운 눈동자 움직임",
+        "일관된 눈 하이라이트",
+        "자연스러운 시선"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_599",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/599.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 얼굴 조명이 배경 조명과 일치하고, 그림자 방향이 물리적으로 올바릅니다.",
+      "cues": [
+        "조명-배경 일치",
+        "올바른 그림자 방향",
+        "자연스러운 반사"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_medium_672",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/672.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 미세한 표정 변화가 자연스럽게 연결되며, 피부 미세 텍스처가 일관되게 유지됩니다.",
+      "cues": [
+        "미세 표정 자연스러움",
+        "피부 텍스처 일관성",
+        "자연스러운 근육 연결"
+      ],
+      "difficulty": "medium",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_720",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/720.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 고해상도 분석에서도 모든 얼굴 요소가 물리적으로 일관됩니다. 모공, 잔털 등 미세한 피부 디테일이 자연스럽습니다.",
+      "cues": [
+        "미세 피부 디테일",
+        "모공 자연스러움",
+        "고해상도 일관성"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_828",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/828.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 프레임 간 얼굴 요소의 temporal consistency가 완벽합니다. 피부 노이즈 패턴이 자연스러운 랜덤 분포를 보입니다.",
+      "cues": [
+        "완벽한 temporal consistency",
+        "자연스러운 노이즈 패턴",
+        "프레임 간 연속성"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_830",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/830.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 복잡한 조명 환경에서도 얼굴 모든 부위가 물리 법칙에 맞게 반응합니다. 눈 반사 하이라이트 위치가 정확합니다.",
+      "cues": [
+        "복잡 조명 일관 반응",
+        "정확한 눈 하이라이트",
+        "물리적 정확성"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_866",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/866.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 얼굴 외곽 가장자리의 피부-배경 전환이 자연스럽습니다. AI 생성 특유의 고주파 텍스처 반복 패턴이 없습니다.",
+      "cues": [
+        "자연스러운 외곽 전환",
+        "고주파 반복 패턴 없음",
+        "자연 피부 텍스처"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_878",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/878.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 머리카락 한 올 한 올의 물리적 움직임이 자연스럽고 헤어라인 처리가 완벽합니다. 어떤 구간을 봐도 일관성이 유지됩니다.",
+      "cues": [
+        "자연스러운 헤어 움직임",
+        "완벽한 헤어라인",
+        "전체 구간 일관성"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_917",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/917.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 고해상도 분석에서도 모든 얼굴 요소가 물리적으로 일관됩니다. 모공, 잔털 등 미세한 피부 디테일이 자연스럽습니다.",
+      "cues": [
+        "미세 피부 디테일",
+        "모공 자연스러움",
+        "고해상도 일관성"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_924",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/924.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 프레임 간 얼굴 요소의 temporal consistency가 완벽합니다. 피부 노이즈 패턴이 자연스러운 랜덤 분포를 보입니다.",
+      "cues": [
+        "완벽한 temporal consistency",
+        "자연스러운 노이즈 패턴",
+        "프레임 간 연속성"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_942",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/942.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 복잡한 조명 환경에서도 얼굴 모든 부위가 물리 법칙에 맞게 반응합니다. 눈 반사 하이라이트 위치가 정확합니다.",
+      "cues": [
+        "복잡 조명 일관 반응",
+        "정확한 눈 하이라이트",
+        "물리적 정확성"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_943",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/943.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 얼굴 외곽 가장자리의 피부-배경 전환이 자연스럽습니다. AI 생성 특유의 고주파 텍스처 반복 패턴이 없습니다.",
+      "cues": [
+        "자연스러운 외곽 전환",
+        "고주파 반복 패턴 없음",
+        "자연 피부 텍스처"
+      ],
+      "difficulty": "hard",
+      "technique": null
+    },
+    {
+      "id": "real_ffpp_hard_945",
+      "src": "/api/video/ffpp/original_sequences/youtube/c23/videos/945.mp4",
+      "label": "real",
+      "explanation": "실제 영상입니다. 머리카락 한 올 한 올의 물리적 움직임이 자연스럽고 헤어라인 처리가 완벽합니다. 어떤 구간을 봐도 일관성이 유지됩니다.",
+      "cues": [
+        "자연스러운 헤어 움직임",
+        "완벽한 헤어라인",
+        "전체 구간 일관성"
+      ],
+      "difficulty": "hard",
+      "technique": null
     }
   ]
 }

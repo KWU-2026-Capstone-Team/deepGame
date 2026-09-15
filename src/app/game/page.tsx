@@ -27,6 +27,7 @@ function GameInner() {
   const router = useRouter();
   const params = useSearchParams();
   const totalRounds = parseInt(params.get('rounds') ?? '10', 10);
+  const difficultyParam = params.get('difficulty') ?? 'all';
 
   // ── State ──────────────────────────────────────────────────────────────────
   const [clips, setClips] = useState<VideoClip[]>([]);
@@ -66,7 +67,10 @@ function GameInner() {
     fetch('/data/videos.json')
       .then((r) => r.json())
       .then((data: { videos: VideoClip[] }) => {
-        const picked = shuffle(data.videos).slice(0, Math.min(totalRounds, data.videos.length));
+        const filtered = difficultyParam === 'all'
+          ? data.videos
+          : data.videos.filter((v) => v.difficulty === difficultyParam);
+        const picked = shuffle(filtered).slice(0, Math.min(totalRounds, filtered.length));
         setClips(picked);
         clipsRef.current = picked;
         setPhase('watching');
