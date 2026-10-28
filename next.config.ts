@@ -11,6 +11,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false, // X-Powered-By: Next.js 헤더 숨김
+  experimental: {
+    agentUpgrade: "security",
+  },
   headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
