@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import { useRouter } from 'next/navigation';
 import type { GameSession } from '@/types/game';
 
@@ -14,21 +14,26 @@ function getGrade(accuracy: number): Grade {
   return                        { letter: 'D', color: 'var(--red)',   rank: 'UNQUALIFIED' };
 }
 
+const noopSubscribe = () => () => {};
+
 export default function ResultPage() {
   const router = useRouter();
-  const [session, setSession] = useState<GameSession | null>(null);
+  // sessionStorage는 브라우저에만 있으므로 외부 저장소로 읽는다 (서버 렌더에서는 undefined = 아직 모름)
+  const raw = useSyncExternalStore(
+    noopSubscribe,
+    () => sessionStorage.getItem('gameSession'),
+    () => undefined,
+  );
+  const session = useMemo<GameSession | null>(() => (raw ? JSON.parse(raw) : null), [raw]);
   const [displayScore, setDisplayScore] = useState(0);
 
   useEffect(() => {
-    const raw = sessionStorage.getItem('gameSession');
-    if (!raw) {
-      router.replace('/');
-      return;
-    }
-    const s: GameSession = JSON.parse(raw);
-    setSession(s);
+    if (raw === null) router.replace('/'); // 저장된 게임이 없으면 홈으로
+  }, [raw, router]);
 
-    const TARGET = s.score;
+  useEffect(() => {
+    if (!session) return;
+    const TARGET = session.score;
     const DURATION = 1500;
     const STEPS = 60;
     const increment = TARGET / STEPS;
@@ -44,13 +49,14 @@ export default function ResultPage() {
     }, DURATION / STEPS);
 
     return () => clearInterval(interval);
-  }, [router]);
+  }, [session]);
 
   if (!session) return null;
 
   const correctCount = session.results.filter((r) => r.correct).length;
   const accuracy     = correctCount / session.totalRounds;
   const grade        = getGrade(accuracy);
+  const avgTime      = session.results.reduce((sum, r) => sum + r.timeUsed, 0) / Math.max(session.results.length, 1);
 
   const MONO: React.CSSProperties = { fontFamily: 'var(--font-jetbrains-mono, monospace)' };
 
@@ -98,18 +104,19 @@ export default function ResultPage() {
 
       {/* ── Stats grid ── */}
       <div
-        className="grid grid-cols-3 w-full"
+        className="grid grid-cols-4 w-full"
         style={{ border: '1px solid var(--border)', borderRadius: '6px', overflow: 'hidden' }}
       >
         {[
           { value: `${correctCount}/${session.totalRounds}`, label: 'CORRECT' },
           { value: `${Math.round(accuracy * 100)}%`,         label: 'ACCURACY' },
           { value: `×${session.maxStreak}`,                  label: 'MAX STREAK' },
+          { value: `${avgTime.toFixed(1)}s`,                 label: 'AVG TIME' },
         ].map((stat, i) => (
           <div
             key={i}
             className="text-center py-5"
-            style={{ borderRight: i < 2 ? '1px solid var(--border)' : 'none' }}
+            style={{ borderRight: i < 3 ? '1px solid var(--border)' : 'none' }}
           >
             <div className="font-bold tabular-nums" style={{ ...MONO, color: 'var(--foreground)', fontSize: '1.35rem' }}>
               {stat.value}

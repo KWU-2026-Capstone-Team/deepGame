@@ -1,0 +1,6 @@
+torch
+torchvision
+transformers
+pillow
+numpy
+opencv-python-headless<5  # 5.x에는 Haar 얼굴 검출기가 없음

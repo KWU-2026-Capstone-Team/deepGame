@@ -47,6 +47,12 @@ __pycache__/
 
 # 원본 데이터셋 (용량 크고 재다운 가능, 게임 실행에 불필요)
 Datasets/
+Datasets_original/
+
+# 정답이 담긴 파일·재배포가 제한된 데이터셋 영상은 공개 저장소에 올리지 않는다
+# (public/videos의 기본 영상 24개는 clone만으로 게임이 돌아가도록 저장소에 포함한다)
+/src/data/fakeLevels.json
+scripts/classify/.venv/
 
 # Claude Code 설정 파일
 CLAUDE.md
