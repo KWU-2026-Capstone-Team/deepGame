@@ -5,12 +5,13 @@
 - 랜딩(`/`), 게임(`/game`), 결과(`/result`) 페이지
 - 기본 영상 24개 (`public/videos/`, 정답·해설은 서버 전용 `src/data/videos.json`)
 - `Datasets/` 폴더 영상 자동 출제 + 스트리밍 (`/api/video/...`)
-- 정답 판정을 서버로 이동 (`/api/game`, `/api/game/answer`), 보안 헤더, Next.js 16.4.0 보안 업데이트
+- 정답 판정을 서버로 이동 (`/api/game`, `/api/game/answer`), 보안 헤더, Next.js 16.4.3 보안 업데이트
 - REAL/FAKE 반반 출제, 목록 로드 실패 시 안내 화면
 - 결과 화면에 평균 판별 시간 표시
 - 재생할 수 없는 영상은 예비 영상으로 교체하거나 라운드에서 제외
 - 영상 주소에 파일 이름(정답)이 드러나지 않도록 해시 주소 사용
-- FAKE 383개 난이도 손 분류 (`src/data/fakeLevels.json`) + 새 영상 자동 분류 스크립트 (`npm run classify-fakes`)
+- FAKE 383개 난이도 손 분류 → 우리 팀 이중브랜치 탐지 모델로 순위 3등분 자동 분류 (`npm run classify-fakes`, 381개 + 제외 2개)
+- REAL 영상은 게임마다 무작위로 난이도에 같은 개수씩 배정
 - 모든 영상을 웹용 형식으로 변환 (`npm run convert-videos`)
 
 ## 남은 작업
@@ -18,7 +19,6 @@
 - `Datasets/` 영상을 넣은 뒤 REAL·FAKE 영상의 화질·해상도·구도가 비슷한지 직접 확인
   (출처가 달라 화면 느낌만으로 정답을 맞힐 수 있으면 같은 출처의 REAL 영상으로 교체)
 - 자동 분류된 FAKE와 REAL 영상의 해설은 템플릿이라 영상마다 실제 단서와 다를 수 있음
-- 우리 팀 탐지 모델을 `scripts/classify/detectors/custom.py`에 연결
 - 배포 시에는 `Datasets/` 영상이 나오지 않음 (로컬 실행 전용)
 
 ---

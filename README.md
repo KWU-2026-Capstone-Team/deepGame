@@ -8,7 +8,8 @@ FaceForensics++ 데이터셋의 실제 영상과 Deepfakes 기법으로 생성�
 
 ## 주요 기능
 
-- **24개 영상 클립**: 실제 영상 12개 + 딥페이크 영상 12개 (각 5초)
+- **기본 영상 24개**: 실제 영상 12개 + 딥페이크 영상 12개 (각 5초, 저장소에 포함)
+- **추가 영상 자동 출제**: 로컬 실행 시 `Datasets/` 폴더 영상(현재 REAL 178개 + FAKE 381개)도 함께 출제
 - **타이머 없음**: 영상 재생 중 언제든 답변 선택 가능
 - **라운드 선택**: 5 / 10 / 15 라운드 중 선택
 - **콤보 시스템**: 연속 정답 시 추가 점수
@@ -41,13 +42,15 @@ npm run dev
 - **실제 영상**: `original_sequences/youtube/c23/videos/` — 12명의 개별 인물
 - **딥페이크 영상**: `manipulated_sequences/Deepfakes/c23/videos/` — Deepfakes 오토인코더 기법
 
-데이터셋 원본 파일은 용량 문제로 저장소에 포함되지 않습니다 (`Datasets/` 폴더는 `.gitignore` 처리).
+데이터셋 원본 파일은 용량 문제로 저장소에 포함되지 않습니다 (`Datasets/` 폴더는 `.gitignore` 처리). FaceForensics++ 다운로드 스크립트(`download-FaceForensics.py`)도 이용약관에 동의한 사람에게만 배포되므로 저장소에 올리지 않습니다. [FaceForensics++ 저장소](https://github.com/ondyari/FaceForensics)에서 신청해 받은 뒤 프로젝트 루트에 두세요.
 
 `Datasets/` 아래 폴더에 넣은 영상은 파일 이름과 상관없이 게임이 자동으로 사용합니다 (`src/lib/datasets.ts`의 `SOURCES` 참고).
 
-- `Datasets/end_to_end_level_1/` → FAKE, 보통
-- `Datasets/end_to_end_level_2/` → FAKE, 어려움
+- `Datasets/end_to_end_level_1/` → FAKE (기본 난이도 보통)
+- `Datasets/end_to_end_level_2/` → FAKE (기본 난이도 어려움)
 - `Datasets/ffpp/original_sequences/` → REAL, 게임마다 무작위로 난이도에 같은 개수씩 배정
+
+FAKE의 기본 난이도는 `src/data/fakeLevels.json`이 없거나 거기에 없는 영상에만 쓰입니다. 실제 난이도는 아래 자동 분류 결과를 따릅니다 (모델 기준으로는 level_1에 어려운 영상이, level_2에 쉬운 영상이 더 많습니다).
 
 새 영상을 넣은 뒤에는 아래 명령으로 웹용 형식(H.264 4:2:0, 소리 제거, faststart)으로 변환하세요. 일부 데이터셋 영상(H.264 4:4:4)은 브라우저에서 재생되지 않습니다. 원본은 `Datasets_original/`로 옮겨지고, 이미 변환된 영상은 건너뜁니다 (ffmpeg 필요).
 
@@ -59,7 +62,7 @@ npm run convert-videos
 
 ## FAKE 영상 난이도 자동 분류
 
-FAKE 영상의 난이도는 `src/data/fakeLevels.json`에 저장됩니다. 지금 있는 383개는 장면을 보고 손으로 분류했고, 새로 넣는 영상은 탐지 모델로 자동 분류할 수 있습니다.
+FAKE 영상의 난이도는 `src/data/fakeLevels.json`에 저장됩니다. 처음에는 383개를 장면을 보고 손으로 분류했고, 지금은 우리 팀 탐지 모델로 `--all` 자동 분류한 결과(381개, 얼굴이 안 나오는 2개는 제외)를 씁니다. 손 분류는 각 항목의 `"manualDifficulty"`에 남아 있습니다.
 기준: **AI도 쉽게 잡은 가짜 = 쉬움, AI도 속은 가짜 = 어려움**. 모델이 매긴 '가짜 확률' 순으로 줄을 세워 1/3씩 쉬움·보통·어려움으로 나누므로, 세 난이도의 개수가 항상 같고(차이는 최대 1개) 모델을 바꿔도 맞출 기준값이 없습니다. REAL 영상은 미리 분류하지 않고, 게임을 시작할 때마다 무작위로 쉬움·보통·어려움에 같은 개수씩 나눠 넣습니다.
 
 ```bash
@@ -101,13 +104,17 @@ npm run classify-fakes -- --calibrate      # 손 분류 영상을 순위로 나�
 ```
 deepGame/
 ├── public/
-│   └── videos/          # 기본 5초 클립 24개 (git에 올라가지 않음, 이름은 해시)
+│   └── videos/          # 기본 5초 클립 24개 (저장소에 포함, 이름은 해시)
 ├── Datasets/            # 추가 영상 폴더 (git에 올라가지 않음)
+├── poster-screenshots/  # 포스터용 게임 화면 캡처
+├── PROGRESS.md          # 진행 현황·게임 구조·점수 체계
 ├── scripts/
 │   ├── convert-videos.mjs  # 영상을 웹용 형식으로 변환 (npm run convert-videos)
 │   └── classify/           # FAKE 난이도 자동 분류 (npm run classify-fakes)
+│       ├── classify_fakes.py  # 순위 3등분 분류 스크립트
 │       ├── config.py       # 사용할 모델·분류할 폴더
-│       └── detectors/      # 탐지 모델 (custom.py = 우리 모델 자리)
+│       ├── detectors/      # 탐지 모델 (custom.py = 우리 팀 모델)
+│       └── models/         # 모델 가중치 (git에 올라가지 않음)
 └── src/
     ├── app/
     │   ├── page.tsx                  # 랜딩 페이지

@@ -56,6 +56,8 @@ Datasets_original/
 scripts/classify/.venv/
 # 탐지 모델 가중치 (약 400MB, AI-Generated-Media-Detection 저장소 seelhwan 브랜치에서 가져옴)
 scripts/classify/models/
+# FaceForensics++ 다운로드 스크립트 (이용약관에 동의한 사람에게만 배포되므로 공개 저장소에 올리지 않음)
+download-FaceForensics.py
 
 # Claude Code 설정 파일
 CLAUDE.md
