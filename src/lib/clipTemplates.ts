@@ -16,20 +16,13 @@ const FAKE_NO_NOTE: Record<Difficulty, string> = {
   hard:   '뚜렷한 합성 흔적이 거의 없는 고품질 영상이라 사람 눈으로는 구분하기 매우 어렵습니다.',
 };
 
-const REAL_BY_LEVEL: Record<Difficulty, string> = {
-  easy:   '',
-  medium: '',
-  hard:   ' AI 탐지 모델도 가짜로 의심한 영상입니다. 압축 노이즈나 조명 때문에 진짜도 가짜처럼 보일 수 있습니다.',
-};
-
 export function clipText(
   label: Label,
   opts: { difficulty?: Difficulty; technique?: string; note?: string },
 ): ClipText {
   if (label === 'real') {
-    const extra = opts.difficulty ? REAL_BY_LEVEL[opts.difficulty] : '';
     return {
-      explanation: `합성하지 않은 실제 촬영 영상입니다 (FaceForensics++ 원본).${extra}`,
+      explanation: '합성하지 않은 실제 촬영 영상입니다 (FaceForensics++ 원본).',
       cues: [],
       tips: REAL_TIPS,
     };

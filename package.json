@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "convert-videos": "node scripts/convert-videos.mjs",
-    "classify-setup": "python3 -m venv --system-site-packages scripts/classify/.venv && scripts/classify/.venv/bin/pip install -r scripts/classify/requirements.txt",
+    "classify-setup": "python3 -m venv --system-site-packages scripts/classify/.venv && scripts/classify/.venv/bin/pip install -r scripts/classify/requirements.txt && scripts/classify/.venv/bin/pip install --no-deps facenet-pytorch==2.6.0",
     "classify-fakes": "scripts/classify/.venv/bin/python scripts/classify/classify_fakes.py"
   },
   "dependencies": {

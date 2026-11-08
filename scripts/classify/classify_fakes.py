@@ -1,17 +1,23 @@
-"""FAKE 영상의 난이도를 탐지 모델로 자동 분류해 src/data/fakeLevels.json에 기록한다.
+"""탐지 모델 점수의 '순위'로 FAKE 영상 난이도를 쉬움·보통·어려움 3등분해 src/data/fakeLevels.json에 기록한다.
 
-  npm run classify-fakes                   # 아직 레벨이 없는 영상만 분류
-  npm run classify-fakes -- --rescore-auto # 자동 분류했던 영상도 다시 분류 (모델을 바꿨을 때)
+  npm run classify-fakes                   # 레벨이 없는 FAKE 영상 + 자동 분류했던 FAKE 영상을 함께 순위 매겨 3등분
+  npm run classify-fakes -- --all          # 손 분류 영상까지 전부 순위로 다시 나눔 (FAKE 전체가 균등해짐)
+  npm run classify-fakes -- --rescore-auto # 저장된 점수를 쓰지 않고 모델로 다시 채점 (모델을 바꿨을 때)
   npm run classify-fakes -- --dry-run      # 파일은 안 바꾸고 결과만 출력
-  npm run classify-fakes -- --calibrate    # 손으로 분류한 영상과 비교해 기준값(EASY_MIN 등) 추천
-  npm run classify-fakes -- --real         # REAL 영상 난이도 분류 (AI가 가짜로 착각한 진짜 = 어려움)
+  npm run classify-fakes -- --calibrate    # 손 분류 영상을 순위로 나눠 보고 손 분류와 얼마나 일치하는지 출력
 
-손으로 분류한 항목("source"가 없는 항목)은 절대 덮어쓰지 않는다.
+나누는 방법: 가짜 확률 순으로 줄을 세워 앞에서부터 1/3씩 자른다.
+  가짜 확률이 높을수록 쉬움 (AI도 쉽게 잡은 가짜), 낮을수록 어려움 (AI도 속은 가짜)
+REAL 영상은 분류하지 않는다 (게임을 시작할 때마다 무작위로 난이도에 같은 개수씩 배정).
+
+손으로 분류한 항목("source"가 없는 항목)은 --all을 줄 때만 바뀐다.
+그때도 원래 손 분류는 "manualDifficulty"에 남겨 두고, 바꾸기 전 파일을 백업한다.
 """
 
 import argparse
 import io
 import json
+import shutil
 import subprocess
 import sys
 import time
@@ -29,6 +35,7 @@ DATASETS = ROOT / "Datasets"
 LEVELS_JSON = ROOT / "src" / "data" / "fakeLevels.json"
 VIDEO_EXTS = {".mp4", ".webm", ".mov", ".m4v"}
 FACE_CASCADE = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+LEVELS = ("easy", "medium", "hard")
 
 
 def list_videos(dirs: list[str]) -> list[str]:
@@ -73,54 +80,73 @@ def crop_face(frame: Image.Image) -> Image.Image:
     return frame.crop(tuple(int(v) for v in box))
 
 
-def to_level(score: float) -> str:
-    if score >= config.EASY_MIN:
-        return "easy"
-    if score >= config.MEDIUM_MIN:
-        return "medium"
-    return "hard"
+def split_by_rank(scores: dict[str, float]) -> dict[str, str]:
+    """점수가 높은 순으로 줄을 세워 앞에서부터 1/3씩 쉬움·보통·어려움으로 나눈다 (개수 차이는 최대 1개)."""
+    ordered = sorted(scores, key=lambda k: (-scores[k], k))
+    n = len(ordered)
+    return {key: LEVELS[rank * 3 // n] for rank, key in enumerate(ordered)}
 
 
-def score_videos(keys: list[str], show_level: bool = True) -> dict[str, float]:
+def get_scores(keys: list[str], levels: dict, rescore: bool) -> dict[str, float]:
+    """같은 모델로 매긴 점수가 저장돼 있으면 그대로 쓰고, 없는 영상만 모델로 채점한다."""
     detector = config.DETECTOR
+    scores, todo = {}, []
+    for key in keys:
+        entry = levels.get(key, {})
+        if not rescore and "score" in entry and entry.get("model") == detector.name:
+            scores[key] = entry["score"]
+        else:
+            todo.append(key)
+    if scores:
+        print(f"저장된 점수 재사용: {len(scores)}개 (모델: {detector.name})")
+    if not todo:
+        return scores
+
     print(f"모델 불러오는 중: {detector.name}")
     detector.load()
-    scores = {}
     start = time.time()
-    for n, key in enumerate(keys, 1):
+    for n, key in enumerate(todo, 1):
         try:
-            frames = extract_frames(DATASETS / key, config.FRAMES_PER_VIDEO)
-            images = [crop_face(f) for f in frames] if detector.wants_face_crops else frames
-            scores[key] = detector.predict(images)
-            level = f"{to_level(scores[key]):6} " if show_level else ""
-            print(f"[{n}/{len(keys)}] {scores[key]:.3f} {level}{key}")
+            if detector.reads_video:
+                scores[key] = detector.predict_video(DATASETS / key)
+            else:
+                frames = extract_frames(DATASETS / key, config.FRAMES_PER_VIDEO)
+                images = [crop_face(f) for f in frames] if detector.wants_face_crops else frames
+                scores[key] = detector.predict(images)
+            print(f"[{n}/{len(todo)}] {scores[key]:.3f} {key}")
         except Exception as err:  # 영상 하나가 실패해도 나머지는 계속
-            print(f"[{n}/{len(keys)}] 실패 {key}: {err}", file=sys.stderr)
-    print(f"{len(scores)}개 분석, {time.time() - start:.0f}초")
+            print(f"[{n}/{len(todo)}] 실패 {key}: {err}", file=sys.stderr)
+    print(f"{len(todo)}개 채점, {time.time() - start:.0f}초")
     return scores
 
 
-def calibrate(levels: dict, scores: dict[str, float]) -> None:
-    """손으로 분류한 영상의 점수를 보고, 같은 비율이 나오는 기준값을 추천한다."""
-    manual = {k: v["difficulty"] for k, v in levels.items()
-              if k in scores and "source" not in v and "difficulty" in v}
+def manual_label(entry: dict) -> str | None:
+    """손으로 분류한 난이도 (--all로 덮어쓴 뒤에도 manualDifficulty에 남아 있다)."""
+    if "manualDifficulty" in entry:
+        return entry["manualDifficulty"]
+    if "source" not in entry:
+        return entry.get("difficulty")
+    return None
+
+
+def calibrate(levels: dict, args: argparse.Namespace) -> None:
+    """손 분류 영상만 순위로 3등분해 보고, 손 분류와 얼마나 일치하는지 보여 준다. 파일은 바꾸지 않는다."""
+    manual = {k: manual_label(levels[k]) for k in list_videos(config.FAKE_DIRS)
+              if k in levels and not levels[k].get("exclude") and manual_label(levels[k])}
     if not manual:
         print("비교할 손 분류 영상이 없습니다.")
         return
-    for lvl in ("easy", "medium", "hard"):
-        s = [scores[k] for k, v in manual.items() if v == lvl]
+    keys = list(manual)[:args.limit] if args.limit else list(manual)
+    scores = get_scores(keys, levels, args.rescore_auto)
+    if not scores:
+        return
+    ranked = split_by_rank(scores)
+    for lvl in LEVELS:
+        s = [scores[k] for k in scores if manual[k] == lvl]
         if s:
             print(f"손 분류 {lvl:6}: {len(s):3}개, 모델 점수 평균 {np.mean(s):.3f} (중앙값 {np.median(s):.3f})")
-    ordered = sorted(scores[k] for k in manual)
-    counts = {lvl: list(manual.values()).count(lvl) for lvl in ("easy", "medium", "hard")}
-    medium_min = ordered[counts["hard"]] if counts["hard"] < len(ordered) else 1.0
-    easy_min = ordered[counts["hard"] + counts["medium"]] if counts["hard"] + counts["medium"] < len(ordered) else 1.0
-    agree = sum(
-        ("easy" if scores[k] >= easy_min else "medium" if scores[k] >= medium_min else "hard") == v
-        for k, v in manual.items())
-    print(f"\n추천 기준값 (손 분류와 같은 비율): EASY_MIN = {easy_min:.3f}, MEDIUM_MIN = {medium_min:.3f}")
-    print(f"이 기준으로 손 분류와 일치: {agree}/{len(manual)} ({agree / len(manual):.0%})")
-    print("config.py의 값을 바꾸려면 직접 고쳐 주세요.")
+    agree = sum(ranked[k] == manual[k] for k in scores)
+    print(f"\n순위 3등분 결과와 손 분류 일치: {agree}/{len(scores)} ({agree / len(scores):.0%})")
 
 
 def write_levels(levels: dict) -> None:
@@ -129,71 +155,66 @@ def write_levels(levels: dict) -> None:
     print(f"{LEVELS_JSON.relative_to(ROOT)}에 기록했습니다.")
 
 
-def classify_real(levels: dict, args: argparse.Namespace) -> None:
-    """REAL 영상은 '가짜 확률'이 높을수록 어렵다 (AI도 가짜로 착각한 진짜).
-    기준값을 맞출 손 분류가 없으므로 점수 순으로 3등분한다. 자동 분류 항목은 매번 다시 매긴다."""
-    keys = [k for k in list_videos(config.REAL_DIRS)
-            if k not in levels or levels[k].get("source") == "auto"]
+def apply_split(levels: dict, dirs: list[str], include_manual: bool, args: argparse.Namespace) -> None:
+    pool = []
+    for key in list_videos(dirs):
+        entry = levels.get(key, {})
+        if entry.get("exclude"):
+            continue
+        is_manual = "difficulty" in entry and entry.get("source") != "auto"
+        if is_manual and not include_manual:
+            continue
+        pool.append(key)
     if args.limit:
-        keys = keys[:args.limit]
-    if not keys:
-        print("분류할 REAL 영상이 없습니다.")
+        pool = pool[:args.limit]
+    if not pool:
+        print("분류할 영상이 없습니다. (손 분류 영상까지 다시 나누려면 --all)")
         return
-    scores = score_videos(keys, show_level=False)
-    ordered = sorted(scores, key=scores.get)  # 낮은 점수(진짜다움)부터
-    third = len(ordered) / 3
-    for rank, key in enumerate(ordered):
-        lvl = "easy" if rank < third else "medium" if rank < 2 * third else "hard"
-        levels[key] = {"difficulty": lvl, "source": "auto",
-                       "score": round(scores[key], 4), "model": config.DETECTOR.name}
-    print(f"결과: 쉬움·보통·어려움 각 약 {len(ordered) // 3}개")
+
+    scores = get_scores(pool, levels, args.rescore_auto)
+    if not scores:
+        print("채점된 영상이 없습니다.")
+        return
+    ranked = split_by_rank(scores)
+    for key, lvl in ranked.items():
+        old = levels.get(key, {})
+        entry = {k: v for k, v in old.items() if k in ("note", "manualDifficulty")}
+        if "source" not in old and "difficulty" in old:
+            entry["manualDifficulty"] = old["difficulty"]
+        entry.update({"difficulty": lvl, "source": "auto",
+                      "score": round(scores[key], 4), "model": config.DETECTOR.name})
+        levels[key] = entry
+
+    counts = {lvl: list(ranked.values()).count(lvl) for lvl in LEVELS}
+    print(f"결과 ({len(ranked)}개를 순위로 3등분): 쉬움 {counts['easy']} · 보통 {counts['medium']} · 어려움 {counts['hard']}")
+    skipped = sum(1 for k in list_videos(dirs) if k not in ranked and manual_label(levels.get(k, {}))
+                  and levels[k].get("source") != "auto")
+    if skipped:
+        print(f"손 분류 {skipped}개는 그대로 두었습니다. 전체를 균등하게 나누려면 --all")
     if args.dry_run:
         print("(--dry-run이라 파일은 바꾸지 않았습니다)")
         return
+    if include_manual and LEVELS_JSON.exists():
+        backup = LEVELS_JSON.with_name(f"fakeLevels.backup-{time.strftime('%Y%m%d-%H%M%S')}.json")
+        shutil.copy2(LEVELS_JSON, backup)
+        print(f"바꾸기 전 파일을 {backup.relative_to(ROOT)}에 백업했습니다.")
     write_levels(levels)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--rescore-auto", action="store_true", help="자동 분류했던 영상도 다시 분류")
+    parser.add_argument("--all", action="store_true", help="손 분류 영상까지 전부 순위로 다시 나눔")
+    parser.add_argument("--rescore-auto", action="store_true", help="저장된 점수를 쓰지 않고 다시 채점")
     parser.add_argument("--dry-run", action="store_true", help="파일을 바꾸지 않고 결과만 출력")
-    parser.add_argument("--calibrate", action="store_true", help="손 분류 영상과 비교해 기준값 추천 (파일은 안 바뀜)")
-    parser.add_argument("--real", action="store_true", help="REAL 영상 난이도 분류 (점수 순 3등분)")
+    parser.add_argument("--calibrate", action="store_true", help="손 분류와 순위 3등분 결과 비교 (파일은 안 바뀜)")
     parser.add_argument("--limit", type=int, help="앞에서부터 N개만 처리 (시험용)")
     args = parser.parse_args()
 
     levels = json.loads(LEVELS_JSON.read_text(encoding="utf-8")) if LEVELS_JSON.exists() else {}
-    if args.real:
-        classify_real(levels, args)
-        return
-
-    keys = list_videos(config.FAKE_DIRS)
-
     if args.calibrate:
-        targets = [k for k in keys if k in levels and "source" not in levels[k] and "difficulty" in levels[k]]
+        calibrate(levels, args)
     else:
-        targets = [k for k in keys
-                   if k not in levels or (args.rescore_auto and levels[k].get("source") == "auto")]
-    if args.limit:
-        targets = targets[:args.limit]
-    if not targets:
-        print("분류할 영상이 없습니다. (손 분류 항목은 건드리지 않습니다. 모델을 바꿨다면 --rescore-auto)")
-        return
-
-    scores = score_videos(targets)
-    if args.calibrate:
-        calibrate(levels, scores)
-        return
-
-    for key, score in scores.items():
-        levels[key] = {"difficulty": to_level(score), "source": "auto",
-                       "score": round(score, 4), "model": config.DETECTOR.name}
-    summary = {lvl: sum(to_level(s) == lvl for s in scores.values()) for lvl in ("easy", "medium", "hard")}
-    print(f"결과: 쉬움 {summary['easy']} · 보통 {summary['medium']} · 어려움 {summary['hard']}")
-    if args.dry_run:
-        print("(--dry-run이라 파일은 바꾸지 않았습니다)")
-        return
-    write_levels(levels)
+        apply_split(levels, config.FAKE_DIRS, include_manual=args.all, args=args)
 
 
 if __name__ == "__main__":

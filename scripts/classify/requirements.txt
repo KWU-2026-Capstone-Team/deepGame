@@ -1,6 +1,10 @@
 torch
 torchvision
 transformers
+timm
+requests
+tqdm
+# facenet-pytorch(MTCNN)는 torch 버전을 낮추려 해서 package.json의 classify-setup이 --no-deps로 따로 설치한다
 pillow
 numpy
 opencv-python-headless<5  # 5.x에는 Haar 얼굴 검출기가 없음

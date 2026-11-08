@@ -34,9 +34,21 @@ function loadDatasetClips(): VideoClip[] {
   });
 }
 
+const LEVELS: Difficulty[] = ['easy', 'medium', 'hard'];
+
+/**
+ * REAL 영상은 미리 난이도를 정하지 않는다 (fakeLevels.json에 값이 있어도 무시).
+ * 게임을 시작할 때마다 무작위로 섞어 쉬움·보통·어려움에 같은 개수씩 나눠 넣는다.
+ */
+function withRandomRealLevels(clips: VideoClip[]): VideoClip[] {
+  const real = shuffle(clips.filter((c) => c.label === 'real'));
+  const level = new Map(real.map((c, i) => [c, LEVELS[Math.floor((i * 3) / real.length)]]));
+  return clips.map((c) => (c.label === 'real' ? { ...c, difficulty: level.get(c) } : c));
+}
+
 /** 출제할 수 있는 모든 영상 (정답 포함 — 서버에서만 쓴다) */
 export function loadAllClips(difficulty?: Difficulty): VideoClip[] {
-  const all = [...loadPublicClips(), ...loadDatasetClips()];
+  const all = withRandomRealLevels([...loadPublicClips(), ...loadDatasetClips()]);
   return difficulty ? all.filter((c) => !c.difficulty || c.difficulty === difficulty) : all;
 }
 

@@ -12,6 +12,8 @@ class Detector:
     name = "base"
     #: True면 얼굴만 잘라낸 이미지를, False면 프레임 전체를 predict()에 넘긴다
     wants_face_crops = True
+    #: True면 프레임을 대신 뽑아 주지 않고 predict_video(영상 경로)를 부른다 (얼굴 검출을 모델이 직접 할 때)
+    reads_video = False
 
     def load(self) -> None:
         """모델 가중치를 메모리에 올린다. 영상을 처리하기 전에 한 번만 불린다."""
@@ -22,4 +24,8 @@ class Detector:
 
         1에 가까울수록 모델이 가짜라고 확신한다는 뜻이다.
         """
+        raise NotImplementedError
+
+    def predict_video(self, path) -> float:
+        """reads_video가 True인 모델만 채운다. 영상 파일 경로를 받아 '가짜일 확률'(0~1)을 돌려준다."""
         raise NotImplementedError

@@ -47,7 +47,7 @@ npm run dev
 
 - `Datasets/end_to_end_level_1/` → FAKE, 보통
 - `Datasets/end_to_end_level_2/` → FAKE, 어려움
-- `Datasets/ffpp/original_sequences/` → REAL, 모든 난이도에서 출제
+- `Datasets/ffpp/original_sequences/` → REAL, 게임마다 무작위로 난이도에 같은 개수씩 배정
 
 새 영상을 넣은 뒤에는 아래 명령으로 웹용 형식(H.264 4:2:0, 소리 제거, faststart)으로 변환하세요. 일부 데이터셋 영상(H.264 4:4:4)은 브라우저에서 재생되지 않습니다. 원본은 `Datasets_original/`로 옮겨지고, 이미 변환된 영상은 건너뜁니다 (ffmpeg 필요).
 
@@ -60,26 +60,32 @@ npm run convert-videos
 ## FAKE 영상 난이도 자동 분류
 
 FAKE 영상의 난이도는 `src/data/fakeLevels.json`에 저장됩니다. 지금 있는 383개는 장면을 보고 손으로 분류했고, 새로 넣는 영상은 탐지 모델로 자동 분류할 수 있습니다.
-기준: **AI도 쉽게 잡은 가짜 = 쉬움, AI도 속은 가짜 = 어려움** (모델이 매긴 '가짜 확률'로 판단).
+기준: **AI도 쉽게 잡은 가짜 = 쉬움, AI도 속은 가짜 = 어려움**. 모델이 매긴 '가짜 확률' 순으로 줄을 세워 1/3씩 쉬움·보통·어려움으로 나누므로, 세 난이도의 개수가 항상 같고(차이는 최대 1개) 모델을 바꿔도 맞출 기준값이 없습니다. REAL 영상은 미리 분류하지 않고, 게임을 시작할 때마다 무작위로 쉬움·보통·어려움에 같은 개수씩 나눠 넣습니다.
 
 ```bash
 npm run classify-setup                     # 처음 한 번 (Python 가상환경 + 패키지 설치)
-npm run classify-fakes                     # 레벨이 없는 영상만 분류해서 fakeLevels.json에 추가
+npm run classify-fakes                     # 레벨이 없는 영상 + 자동 분류했던 영상을 함께 순위로 3등분
+npm run classify-fakes -- --all            # 손 분류 영상까지 전부 순위로 다시 나눔 (FAKE 전체가 균등해짐)
 npm run classify-fakes -- --dry-run        # 파일은 안 바꾸고 결과만 보기
-npm run classify-fakes -- --rescore-auto   # 자동 분류했던 영상을 다시 분류 (모델을 바꿨을 때)
-npm run classify-fakes -- --calibrate      # 손 분류 결과와 비교해 기준값 추천
-npm run classify-fakes -- --real           # REAL 영상 난이도 분류 (AI가 가짜로 착각한 진짜 = 어려움, 점수 순 3등분)
+npm run classify-fakes -- --rescore-auto   # 저장된 점수를 쓰지 않고 다시 채점 (모델을 바꿨을 때)
+npm run classify-fakes -- --calibrate      # 손 분류 영상을 순위로 나눠 보고 손 분류와 얼마나 일치하는지 출력
 ```
 
-- 손으로 분류한 항목은 덮어쓰지 않습니다. 자동 분류한 항목에는 `"source": "auto"`, 점수, 모델 이름이 함께 기록됩니다.
-- 필요한 것: Python 3, ffmpeg. 임시 모델(ViT, 약 340MB)은 처음 실행할 때 자동으로 내려받습니다.
+- 손으로 분류한 항목은 `--all`을 줄 때만 바뀝니다. 그때도 원래 손 분류는 `"manualDifficulty"`에 남고, 바꾸기 전 파일이 `src/data/fakeLevels.backup-날짜.json`으로 백업됩니다.
+- 자동 분류한 항목에는 `"source": "auto"`, 점수, 모델 이름이 함께 기록됩니다. 같은 모델의 점수가 있으면 다시 채점하지 않고 그대로 씁니다.
+- 필요한 것: Python 3, ffmpeg, 그리고 탐지 모델 가중치(아래).
 
-### 우리 모델로 바꾸기
+### 탐지 모델 (우리 팀 이중브랜치 모델)
 
-1. `scripts/classify/detectors/custom.py`의 `load()`(가중치 불러오기)와 `predict()`(이미지 여러 장 → 가짜 확률 0~1)를 채웁니다.
-2. `scripts/classify/config.py`에서 `DETECTOR = CustomDetector("모델 파일 경로")`로 바꿉니다.
-3. `npm run classify-fakes -- --calibrate`로 점수 분포를 보고 `EASY_MIN`, `MEDIUM_MIN`을 조정합니다.
-4. `npm run classify-fakes -- --rescore-auto`로 다시 분류합니다.
+`scripts/classify/detectors/custom.py`가 AI-Generated-Media-Detection 저장소 `seelhwan` 브랜치의 `deepfake_detector/`(공간 ConvNeXt 5개 + 입 영역 3D-CNN 6개, 커밋 adc8b7a)를 씁니다.
+가중치는 약 400MB라 git에 올리지 않으므로, 그 브랜치의 `deepfake_detector/infer.py`와 `deepfake_detector/models/`를 `scripts/classify/models/deepfake_detector/`로 복사해 둡니다.
+학습 때와 같게 MTCNN으로 얼굴 16장을 뽑아 `fused` 점수(공간 + 시공간 평균)를 매깁니다. 얼굴을 4장도 못 찾은 영상은 채점하지 않고 건너뜁니다.
+
+1. `npm run classify-setup`을 다시 실행합니다 (timm, facenet-pytorch 추가).
+2. `npm run classify-fakes -- --calibrate`로 손 분류와 얼마나 맞는지 확인합니다 (선택).
+3. `npm run classify-fakes -- --all`로 전체를 다시 나눕니다. 손 분류를 살리고 새 영상만 나누려면 `--all` 없이 실행합니다.
+
+예전 임시 모델(공개 ViT)로 돌아가려면 `scripts/classify/config.py`의 `DETECTOR` 줄을 주석에 있는 `HuggingFaceImageDetector(...)`로 바꿉니다.
 
 ## 보안
 
@@ -100,7 +106,7 @@ deepGame/
 ├── scripts/
 │   ├── convert-videos.mjs  # 영상을 웹용 형식으로 변환 (npm run convert-videos)
 │   └── classify/           # FAKE 난이도 자동 분류 (npm run classify-fakes)
-│       ├── config.py       # 사용할 모델·난이도 기준값
+│       ├── config.py       # 사용할 모델·분류할 폴더
 │       └── detectors/      # 탐지 모델 (custom.py = 우리 모델 자리)
 └── src/
     ├── app/

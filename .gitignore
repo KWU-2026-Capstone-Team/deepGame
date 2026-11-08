@@ -52,7 +52,10 @@ Datasets_original/
 # 정답이 담긴 파일·재배포가 제한된 데이터셋 영상은 공개 저장소에 올리지 않는다
 # (public/videos의 기본 영상 24개는 clone만으로 게임이 돌아가도록 저장소에 포함한다)
 /src/data/fakeLevels.json
+/src/data/fakeLevels.backup-*.json
 scripts/classify/.venv/
+# 탐지 모델 가중치 (약 400MB, AI-Generated-Media-Detection 저장소 seelhwan 브랜치에서 가져옴)
+scripts/classify/models/
 
 # Claude Code 설정 파일
 CLAUDE.md
